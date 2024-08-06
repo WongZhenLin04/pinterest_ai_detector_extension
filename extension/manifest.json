@@ -4,7 +4,7 @@
     "description": "Base Level Extension",
     "version": "1.0",
     "action": {
-      "default_popup": "scripts/content.html",
+      "default_popup": "content.html",
       "default_icon": "images/hi.png"
     },
     "host_permissions":[
@@ -14,9 +14,10 @@
     "content_scripts": [
       {
         "js": [
-          "scripts/jquery.js",
-          "scripts/popper.min.js",
-          "scripts/bootstrap.min.js",
+          "scripts/dependencies/jquery.js",
+          "scripts/dependencies/popper.min.js",
+          "scripts/dependencies/bootstrap.min.js",
+          "scripts/const.js",
           "scripts/insert_scripts.js",
           "scripts/insert_components.js",
           "scripts/utilities.js",

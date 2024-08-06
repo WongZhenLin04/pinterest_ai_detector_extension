@@ -10,7 +10,7 @@ document.onkeydown = function(e){
 
         if(Utilities.check_alt_x(press_pair)){
             $.post(
-                "http://127.0.0.1:5000/",
+                Constants.post_port,
                 {
                     image: firstImage
                 },

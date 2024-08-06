@@ -3,40 +3,51 @@ class Scores{
     //function assumes that the scores are integers
     static create_score_bars(ai_score,human_score) {
         
-        let element = document.getElementById("gradient");
+        let element = document.getElementById(Constants.image_display_id);
+        let element_container = Utilities.get_parent_above(element,2);
         let parent = Utilities.get_parent_above(element,3);
         
         // ensure that parent does not already have the elements
-        if (!Utilities.hasDuplicateId(parent,"ai_score") && !Utilities.hasDuplicateId(parent,"human_score")){
+        if (!Utilities.hasDuplicateId(parent,Constants.ai_score_name) && !Utilities.hasDuplicateId(parent,Constants.human_score_name)){
             
-            var ai_progress = this.create_progress_bar("ai_score","ai_bar");
+            let element_width = element.offsetWidth
 
-            var human_progress = this.create_progress_bar("human_score","human_bar");
+            let side_width = this.#find_side_size(element_container.offsetWidth,element_width);
 
-            // constructing the structure of the 
+            var ai_progress = this.#create_progress_bar(Constants.ai_score_name,Constants.ai_score_bar_name);
+            var human_progress = this.#create_progress_bar(Constants.human_score_name,Constants.human_score_bar_name);
+            human_progress.style = `width:${element_width}`;
+
+            // constructing the structure of the progress bar
             var ai_row = document.createElement("div");
             ai_row.appendChild(ai_progress);
-            ai_row.style = "padding-bottom:10px";
+            ai_row.style.paddingBottom = Constants.first_bar_bottom_padding;
+            ai_row.style.width = `${element_width}px`;
             var human_row = document.createElement("div");
             human_row.appendChild(human_progress);
+            human_row.style.width = `${element_width}px`;
 
-            parent.insertBefore(human_row,parent.children[0]);
-            parent.insertBefore(ai_row,human_row);
+            var scores_row = document.createElement("div");
+            scores_row.appendChild(ai_row);
+            scores_row.appendChild(human_row);
+            scores_row.style.paddingLeft = `${side_width}px`;
 
-            $("#ai_bar").animate({ 
+            parent.insertBefore(scores_row,parent.children[0]);
+
+            $(`#${Constants.ai_score_bar_name}`).animate({ 
                 width: `${ai_score}%`, 
-            }, 1500);
+            }, Constants.animation_time_bar);
 
-            $("#human_bar").animate({ 
+            $(`#${Constants.human_score_bar_name}`).animate({ 
                 width: `${human_score}%`, 
-            }, 1500);
+            }, Constants.animation_time_bar);
 
         }
 
     }
 
     // function assumes that progress is not in 0. format
-    static create_progress_bar(id,bar_id) {
+    static #create_progress_bar(id,bar_id) {
 
         //creating wrapper for the progress bar
         var progress = document.createElement("div");
@@ -57,6 +68,11 @@ class Scores{
         return progress
 
     }
+
+    // function to find the size of the side panels in pinterest
+    static #find_side_size(container_width,element_width){
+        return Math.round((container_width-element_width)/2)
+    }   
 
 };
 

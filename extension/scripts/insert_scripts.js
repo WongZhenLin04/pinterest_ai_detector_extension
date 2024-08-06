@@ -13,9 +13,9 @@ setTimeout(function() {
 
     make_link(
         "stylesheet",
-        "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css",
-        "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
-        "anonymous"
+        Constants.bootstrap_stylesheet_link,
+        Constants.bootstrap_integrity,
+        Constants.bootstrap_origin
     );
 
 },200)

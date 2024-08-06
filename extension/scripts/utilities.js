@@ -3,7 +3,7 @@ class Utilities{
     // Assumes that the array only has 2 elements
     static check_alt_x(key_presses){
 
-        if (key_presses[0] == "Alt" && key_presses[1]=="x"){
+        if (key_presses[0] == Constants.alt_key_name && key_presses[1]==Constants.x_key_name){
             return true
         }else{
             return false
