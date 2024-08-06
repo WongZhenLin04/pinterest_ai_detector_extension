@@ -2,16 +2,20 @@ class Scores{
 
     //function assumes that the scores are integers
     static create_score_bars(ai_score,human_score) {
-
-        var ai_progress = this.create_progress_bar("ai_score",ai_score)
-
-        var human_progress = this.create_progress_bar("ai_score",human_score)
-
+        
         let element = document.getElementById("gradient");
         let parent = Utilities.get_parent_above(element,3);
         
-        parent.insertBefore(human_progress,parent.children[0]);
-        parent.insertBefore(ai_progress,human_progress)
+        // ensure that parent does not already have the elements
+        if (!Utilities.hasDuplicateId(parent,"ai_score") && !Utilities.hasDuplicateId(parent,"human_score")){
+            
+            var ai_progress = this.create_progress_bar("ai_score",ai_score)
+            var human_progress = this.create_progress_bar("human_score",human_score)
+
+            parent.insertBefore(human_progress,parent.children[0]);
+            parent.insertBefore(ai_progress,human_progress)
+
+        }
 
     }
 

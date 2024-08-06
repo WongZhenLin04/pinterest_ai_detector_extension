@@ -37,4 +37,9 @@ class Utilities{
         return result;
     }
 
+    // Function to check for duplicate elements by ID within the same parent
+    static hasDuplicateId(parent, elementId) {
+        return parent.querySelectorAll(`#${elementId}`).length >= 1;
+    }
+
 }
