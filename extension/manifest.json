@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Test Extensions",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "scripts/content.html",
+      "default_icon": "images/hi.png"
+    },
+    "host_permissions":[
+      "http://127.0.0.1:5000/",
+      "http://127.0.0.1:5000/process/"
+    ],
+    "content_scripts": [
+      {
+        "js": [
+          "scripts/jquery.js",
+          "scripts/popper.min.js",
+          "scripts/bootstrap.min.js",
+          "scripts/insert_scripts.js",
+          "scripts/insert_components.js",
+          "scripts/utilities.js",
+          "scripts/content.js"
+        ],
+        "matches": [  
+          "https://www.pinterest.com/pin/*"
+        ]
+      }
+    ]
+}
+
+
+  
