@@ -8,7 +8,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, origins =[r"https://www.pinterest.com/*/*"])
 
-pipe = pipeline("image-classification", model="umm-maybe/AI-image-detector")
+pipe = pipeline("image-classification", model="Organika/sdxl-detector")
 
 @app.route('/', methods=['GET','POST']) 
 def process():

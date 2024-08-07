@@ -25,16 +25,13 @@ class Utilities{
         return Math.round(number * 100);
     }
 
-    static extractNumbers(inputString) {
-        const regex = /[\d.]+/g;
-        let matches;
-        const result = [];
-    
-        while ((matches = regex.exec(inputString)) !== null) {
-            result.push(parseFloat(matches[0]));
+    static getScoreByLabel(inputString, label) {
+        const regex = new RegExp(`${label}:(\\d*\\.?\\d+)`);
+        const match = inputString.match(regex);
+        if (match) {
+            return parseFloat(match[1]);
         }
-    
-        return result;
+        return null;
     }
 
     // Function to check for duplicate elements by ID within the same parent

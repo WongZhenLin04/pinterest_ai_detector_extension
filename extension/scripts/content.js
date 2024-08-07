@@ -15,12 +15,13 @@ document.onkeydown = function(e){
                     image: firstImage
                 },
                 // This function is what happens on a successful post
-                // assumes that data first index is ai score and second is human score
                 function(data, status){
-                    let scores = Utilities.extractNumbers(data);
-
-                    var ai = Utilities.multiplyBy100(scores[0]);
-                    var human = Utilities.multiplyBy100(scores[1]);
+                    console.log(data)
+                    var ai_score = Utilities.getScoreByLabel(data,"artificial")
+                    var human_score = Utilities.getScoreByLabel(data,"human")
+                    
+                    var ai = Utilities.multiplyBy100(ai_score);
+                    var human = Utilities.multiplyBy100(human_score);
 
                     Scores.create_score_bars(ai,human);
                 }
