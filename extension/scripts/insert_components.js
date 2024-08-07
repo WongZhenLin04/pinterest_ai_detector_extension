@@ -12,7 +12,7 @@ class Scores{
             
             let element_width = element.offsetWidth
 
-            let side_width = this.#find_side_size(element_container.offsetWidth,element_width);
+            let side_width = this.find_side_size(element_container.offsetWidth,element_width);
 
             var ai_progress = this.#create_progress_bar(Constants.ai_score_name,Constants.ai_score_bar_name);
             var human_progress = this.#create_progress_bar(Constants.human_score_name,Constants.human_score_bar_name);
@@ -22,15 +22,21 @@ class Scores{
             var ai_row = document.createElement("div");
             ai_row.appendChild(ai_progress);
             ai_row.style.paddingBottom = Constants.first_bar_bottom_padding;
+            ai_row.style.paddingTop = Constants.first_bar_top_padding;
             ai_row.style.width = `${element_width}px`;
+            ai_row.id = Constants.ai_row_id;
+
             var human_row = document.createElement("div");
             human_row.appendChild(human_progress);
             human_row.style.width = `${element_width}px`;
+            human_row.id = Constants.human_row_id;
+            human_row.style.paddingBottom = Constants.second_bar_bottom_padding;
 
             var scores_row = document.createElement("div");
             scores_row.appendChild(ai_row);
             scores_row.appendChild(human_row);
             scores_row.style.paddingLeft = `${side_width}px`;
+            scores_row.id = Constants.score_container_id;
 
             parent.insertBefore(scores_row,parent.children[0]);
 
@@ -70,7 +76,7 @@ class Scores{
     }
 
     // function to find the size of the side panels in pinterest
-    static #find_side_size(container_width,element_width){
+    static find_side_size(container_width,element_width){
         return Math.round((container_width-element_width)/2)
     }   
 

@@ -32,4 +32,25 @@ document.onkeydown = function(e){
 
 }
 
+// function that resizes the score window when the window resizes
+$(window).resize(function(){
+
+    let scores = document.getElementById(Constants.score_container_id);
+    let ai = document.getElementById(Constants.ai_row_id);
+    let human = document.getElementById(Constants.human_row_id);
+
+    // should really make the scores class have these elements accessible but... too lazy
+    let element = document.getElementById(Constants.image_display_id);
+    let element_width = element.offsetWidth;
+    let element_container = Utilities.get_parent_above(element,2);
+
+    let side_size = Scores.find_side_size(element_container.offsetWidth,element_width);
+
+    scores.style.paddingLeft = `${side_size}px`;    
+    ai.style.width = `${element_width}px`;
+    human.style.width = `${element_width}px`;
+
+});
+
+
 

@@ -13,10 +13,18 @@ class Constants{
 
     static ai_score_name = "ai_score";
     static human_score_name = "human_score";
+
     static ai_score_bar_name = "ai_bar";
     static human_score_bar_name = "human_bar";
 
-    static first_bar_bottom_padding = "10px";
+    static ai_row_id = "ai_row";
+    static human_row_id = "human_row";
+
+    static score_container_id = "score_container";
+
+    static first_bar_bottom_padding = "20px";
+    static first_bar_top_padding = "10px";
+    static second_bar_bottom_padding = "10px";
 
     static animation_time_bar = 1500;
 
