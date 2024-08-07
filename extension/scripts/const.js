@@ -20,10 +20,23 @@ class Constants{
     static ai_row_id = "ai_row";
     static human_row_id = "human_row";
 
-    static score_container_id = "score_container";
+    static ai_text = "Probability Of AI Artwork 🖥️ : ";
+    static human_text = "Probability Of Human Artwork ✍️ : ";
 
+    static text_font_family = "Helvetica";
+    static text_font_variant = "normal";
+    static text_font_style = "normal";
+    static text_font_size = "17px";
+    static text_font_weight = "525";
+
+    static higher_score_colour = "linear-gradient(to right, Crimson , Gold)";
+    static lower_score_colour = "linear-gradient(to right, MidnightBlue , LightSkyBlue)";
+
+    static score_container_id = "score_container";
+    
+    static score_bar_top_padding = "10px";
+    
     static first_bar_bottom_padding = "20px";
-    static first_bar_top_padding = "10px";
     static second_bar_bottom_padding = "10px";
 
     static animation_time_bar = 1500;
