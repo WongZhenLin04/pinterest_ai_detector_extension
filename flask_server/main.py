@@ -8,13 +8,14 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, origins =[r"https://www.pinterest.com/*/*"])
 
-pipe = pipeline("image-classification", model="Organika/sdxl-detector")
+pipe = pipeline("image-classification", model="Nahrawy/AIorNot")
 
 @app.route('/', methods=['GET','POST']) 
 def process():
     if request.method == 'POST':
         data = request.form['image']
         prediction = pipe(data)
+        print(prediction)
         return format_prediction(prediction)
     else:
         return "<p>Testing posting data</p>"

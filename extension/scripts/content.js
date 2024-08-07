@@ -17,8 +17,8 @@ document.onkeydown = function(e){
                 // This function is what happens on a successful post
                 function(data, status){
                     console.log(data)
-                    var ai_score = Utilities.getScoreByLabel(data,"artificial")
-                    var human_score = Utilities.getScoreByLabel(data,"human")
+                    var ai_score = Utilities.getScoreByLabel(data,Constants.ai_label)
+                    var human_score = Utilities.getScoreByLabel(data,Constants.human_label)
                     
                     var ai = Utilities.multiplyBy100(ai_score);
                     var human = Utilities.multiplyBy100(human_score);
