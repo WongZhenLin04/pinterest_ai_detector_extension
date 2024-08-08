@@ -37,6 +37,8 @@ A more specialised model for anime style drawings is sorely needed as the model 
 
 ## Usage
 
+**Make sure to have the flask app setup already as stated from the previous step**
+
 In any pin page, e.g. `https://www.pinterest.com/pin/*` where `*` is a wild card, press the buttons `Alt + x`
 
 ### Example Screenshot
